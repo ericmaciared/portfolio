@@ -1,0 +1,115 @@
+html{
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background-color: #000;
+    color: whitesmoke;
+    font-family: 'Oxygen', sans-serif;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#left-gradient{
+    height: 100%;
+    width: 4vw;
+    background: linear-gradient(15deg, #35a4ff, #004cb5, #fd0707, #fde207);
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 29s ease infinite;
+    -moz-animation: AnimationName 29s ease infinite;
+    -o-animation: AnimationName 29s ease infinite;
+    animation: AnimationName 29s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:47% 0%}
+    50%{background-position:54% 100%}
+    100%{background-position:47% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:47% 0%}
+    50%{background-position:54% 100%}
+    100%{background-position:47% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:47% 0%}
+    50%{background-position:54% 100%}
+    100%{background-position:47% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:47% 0%}
+    50%{background-position:54% 100%}
+    100%{background-position:47% 0%}
+}
+
+main {
+    width: 96vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+#name{
+    font-weight: 400;
+    font-size: 5rem;
+}
+
+#name:hover {
+    color: tomato;
+}
+
+nav {
+    width: 50%;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+nav ul{
+    min-width: 30vw;
+    width: 40%;
+    padding: 0%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+
+li a:hover {
+    color: tomato;
+}
+
