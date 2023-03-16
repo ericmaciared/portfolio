@@ -1,0 +1,73 @@
+body {
+  background-color: lightblue !important;
+  font-family: 'Roboto', sans-serif !important;
+  -webkit-transition: background-color 1s ease-out;
+  -moz-transition: background-color 1s ease-out;
+  -o-transition: background-color 1s ease-out;
+  transition: background-color 1s ease-out;
+}
+
+#contact-page{
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  color: white !important;
+  font-size: 1.25rem !important;
+}
+
+p {
+  font-size: 1.5rem !important;
+}
+
+i {
+  font-size: 1.5rem !important;
+}
+
+h1 {
+  font-family: 'Anybody', Times, serif !important;
+  font-size: 3.5rem !important;
+  font-weight: 900 !important;
+}
+
+#title{
+  width: 30%;
+  margin: 5vh;
+}
+
+nav {
+  margin: 2vh 5vw;
+  height: 5vh;
+  padding: 1rem;
+}
+
+.navbar-brand {
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+  transition: all 1s ease;
+}
+
+.navbar-brand:hover {
+  opacity: 0.7;
+  transform: rotate(90deg);
+}
+
+
+main {
+  color: white;
+  height: 92vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section {
+  color: yellowgreen;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
