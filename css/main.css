@@ -15,7 +15,6 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
-  background-color: rgb(238, 238, 238);
 }
 
 /*
@@ -96,6 +95,15 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+h1, h6, a, p {
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+h3{
+  font-family: 'Reenie Beanie', sans-serif;
+}
+
 
 /* ==========================================================================
    Helper classes
