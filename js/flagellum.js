@@ -5,7 +5,7 @@ const numSpineNodes = 12;
 
 class Flagellum {
   constructor(skinImg) {
-    this.location = createVector(random(-width/2, width/2), random(-height/2, height/2));
+    this.location = createVector();
     this.spine = [];
     this.count = 0;
     this.theta = 0;
@@ -20,10 +20,11 @@ class Flagellum {
       // nodes spacing
       this.skinXspacing = img.width / float(numSpineNodes) + 0.5;
       this.skinYspacing = img.height / 2;
+
+      // initialize nodes
+      console.log(this.location.x, this.location.y);
+      for (let n = 0; n < numSpineNodes; n++) this.spine[n] = createVector();
     });
-    
-    // initialize nodes
-    for (let n = 0; n < numSpineNodes; n++) this.spine.push(createVector());
   }
 
   move() {
@@ -39,16 +40,19 @@ class Flagellum {
 
     // apply kinetic force trough body nodes (spine)
     for (let n = 2; n < numSpineNodes; n++) {
-      let dx = this.spine[n].x - this.spine[n - 2].x;
-      let dy = this.spine[n].y - this.spine[n - 2].y;
-      let d = sqrt(dx * dx + dy * dy);
+      let dx, dy, d;
+
+      dx = this.spine[n].x - this.spine[n - 2].x;
+      dy = this.spine[n].y - this.spine[n - 2].y;
+      d = sqrt(dx * dx + dy * dy);
+
       this.spine[n].x = this.spine[n - 1].x + (dx * this.skinXspacing) / d;
       this.spine[n].y = this.spine[n - 1].y + (dy * this.skinXspacing) / d;
     }
   }
 
   display() {
-    //noStroke();
+    noStroke();
     beginShape(QUAD_STRIP);
     texture(this.skin);
     for (let n = 0; n < numSpineNodes; n++) {
