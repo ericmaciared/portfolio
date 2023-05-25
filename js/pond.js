@@ -1,4 +1,4 @@
-let numKois =1;
+let numKois;
 let kois  = [];
 let koiSkins = [];
 let canvas;
@@ -9,7 +9,7 @@ function windowResized() {
 
 function preload() {
     for (let i = 0; i < 10; i++) koiSkins[i] = "img/skin-" + i + ".png";
-    //numKois = round(windowWidth / 100);
+    numKois = round(windowWidth / 100);
 
     for (let i = 0; i < numKois; i++) {
         let skinId = round(random(0, 9));

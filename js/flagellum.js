@@ -4,8 +4,8 @@
 const numSpineNodes = 12;
 
 class Flagellum {
-  constructor(skinImg) {
-    this.location = createVector();
+  constructor(skinImg, _location) {
+    this.location = _location;
     this.spine = [];
     this.count = 0;
     this.theta = 0;
@@ -22,7 +22,6 @@ class Flagellum {
       this.skinYspacing = img.height / 2;
 
       // initialize nodes
-      console.log(this.location.x, this.location.y);
       for (let n = 0; n < numSpineNodes; n++) this.spine[n] = createVector();
     });
   }

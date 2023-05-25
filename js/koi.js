@@ -1,7 +1,7 @@
 class Koi extends Flagellum {
 
   constructor(skinImg) {
-    super(skinImg);
+    super(skinImg, getOffScreenLocation());
 
     this.velocity = createVector(0, 0);
     this.acceleration = createVector(0, 0);
@@ -14,6 +14,7 @@ class Koi extends Flagellum {
     this.timeCount = 0;
     this.lastTimeCheck = 0;
     this.timeCountLimit = 10;
+    this.visible = false;
   }
 
   // Main live loop
@@ -27,7 +28,7 @@ class Koi extends Flagellum {
     //} 
     this.wander();
     this.update();
-    this.borders();
+    if (this.visible) this.borders();
     this.display();
   }
 
@@ -124,14 +125,50 @@ class Koi extends Flagellum {
         }
       }
     }
+
+    //
+    if (!this.visible) {
+      if (this.location.x < windowWidth/2 && this.location.x > -windowWidth/2 && this.location.y < windowHeight/2 && this.location.y > -windowHeight/2) {
+        this.visible = true;
+        console.log("visible");
+      }
+    }
   }
 
   // wrapper, appear opposit side
   borders() {
-    if (this.location.x < -windowWidth/2 - this.skin.width) this.location.x = windowWidth/2;
-    if (this.location.x > windowWidth/2 + this.skin.width) this.location.x = -windowWidth/2;
-    if (this.location.y < -windowHeight/2 -this.skin.width) this.location.y = windowHeight / 2;
-    if (this.location.y > windowHeight/2 + this.skin.width) this.location.y = -windowHeight / 2;
+    let offsetFactor = 1;
+    if (this.location.x < -offsetFactor*windowWidth / 2 - this.skin.width) {
+      this.location.x = offsetFactor*windowWidth / 2;
+    }
+    if (this.location.x > offsetFactor*windowWidth / 2 + this.skin.width) {
+      this.location.x = -offsetFactor*windowWidth / 2;
+    }
+    if (this.location.y < -offsetFactor*windowHeight / 2 -this.skin.width) {
+      this.location.y = offsetFactor*windowHeight / 2 ;
+    } 
+    if (this.location.y > offsetFactor*windowHeight / 2 + this.skin.width) {
+      this.location.y = -offsetFactor*windowHeight / 2;
+    }
+  }
+}
+
+function getOffScreenLocation() {
+  let offsetFactor = 1.3;
+
+  switch (round(random(0, 3))) {
+    // left
+    case 0:
+      return createVector(-offsetFactor*windowWidth / 2, random(-windowHeight/2, windowHeight/2));
+    // right
+    case 1:
+      return createVector(offsetFactor*windowWidth / 2, random(-windowHeight/2, windowHeight/2));
+    // top
+    case 2:
+      return createVector(random(-windowWidth/2, windowWidth/2), -offsetFactor*windowHeight/2);
+    // bottom
+    case 3:
+      return createVector(random(-windowWidth/2, windowWidth/2), offsetFactor*windowHeight/2);
   }
 }
   
