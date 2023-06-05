@@ -28,12 +28,12 @@ html {
  */
 
 ::-moz-selection {
-  background: #d5fcb3;
+  background: rgb(255, 145, 126);
   *text-shadow: none;
 }
 
 ::selection {
-  background: #d5fcb3;
+  background: rgb(255, 145, 126);
   text-shadow: none;
 }
 
@@ -86,8 +86,10 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+body {
+  overflow-x: hidden;
+}
 
-   
 main {
   width: 100vw;
   height: 100vh;
@@ -97,13 +99,48 @@ main {
   align-items: center;
 }
 
-h1, h6, a, p {
+#about {
+  background-color: rgb(238, 238, 238);
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 20vw;
+  overflow: hidden;
+}
+
+#about-text {
+  max-width: 30vw;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
+  #about {
+    flex-direction: column !important;
+    justify-content: space-evenly !important;
+    height: 200vh !important;
+  }
+
+  #about-text {
+    max-width: 80vw;
+  }
+}
+
+h1, h2, h6, a, p {
   font-family: 'Noto Sans SC', sans-serif;
 }
 
 h3{
   font-family: 'Reenie Beanie', sans-serif;
 }
+
+.nav-link .fa:hover {
+  color: gray !important;
+  transition: all 0.2s ease;
+}
+
 
 
 /* ==========================================================================

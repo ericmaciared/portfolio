@@ -128,10 +128,7 @@ class Koi extends Flagellum {
 
     //
     if (!this.visible) {
-      if (this.location.x < windowWidth/2 && this.location.x > -windowWidth/2 && this.location.y < windowHeight/2 && this.location.y > -windowHeight/2) {
-        this.visible = true;
-        console.log("visible");
-      }
+      if (this.location.x < windowWidth/2 && this.location.x > -windowWidth/2 && this.location.y < windowHeight/2 && this.location.y > -windowHeight/2) this.visible = true;
     }
   }
 
