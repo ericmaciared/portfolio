@@ -8,7 +8,8 @@ let kois  = [];
 let ripples = [];
 let koiSkins = [];
 let canvas;
-
+let water;
+let lightMode = false;
 let maxRippleRadius;
 
 function windowResized() {
@@ -30,14 +31,15 @@ function setup() {
     canvas = createCanvas(windowWidth, windowHeight, WEBGL);
     canvas.position(0, 0);
     canvas.style("z-index: -100");
+    water = new Water();
     maxRippleRadius = windowWidth/2;
     smooth();
-    pixelDensity(2);
+    pixelDensity(2);    
 }
 
 function draw() {
     // TODO: Dynamic water? Noise background for coloring?
-    background(255);
+    water.live();
 
     for (let i = 0; i < numKois; i++) kois[i].live();
     for (let i = 0; i < ripples.length; i++) {
@@ -47,8 +49,37 @@ function draw() {
     }
 }
 
+function changeLightMode() {
+    water.lightMode = !water.lightMode;
+}
+
 function mousePressed() {
     ripples.push(new Ripple(mouseX, mouseY));
+}
+
+class Water {
+    constructor() {
+        this.rgbValue = 238;
+        this.lightMode = true;
+    }
+
+    live() {
+        this.update();
+        this.display();
+    }
+
+    update() {
+        if (this.lightMode) {
+            if (this.rgbValue < 238) this.rgbValue += 5;
+        }
+        else {
+            if (this.rgbValue > 30) this.rgbValue -= 5;
+        }
+    }
+
+    display() {
+        background(this.rgbValue);
+    }
 }
 
 class Ripple {
@@ -70,7 +101,7 @@ class Ripple {
 
     display() {
         let alpha = map(this.radius, 0, maxRippleRadius, 255, 0);
-        stroke(238, 238, 238, alpha);
+        stroke(200, 200, 200, alpha);
         strokeWeight(2);
         noFill();
         ellipse(this.x, this.y, this.radius, this.radius, 50);

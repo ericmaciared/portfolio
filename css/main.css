@@ -88,6 +88,13 @@ textarea {
    ========================================================================== */
 body {
   overflow-x: hidden;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+.dark-mode {
+  color: #fff !important;
+  transition: all 0.2s ease;
 }
 
 main {
@@ -95,17 +102,17 @@ main {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 #about {
-  background-color: rgb(238, 238, 238);
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 20vw;
   overflow: hidden;
+  background-color: #fff;
 }
 
 #about-text {
@@ -136,8 +143,12 @@ h3{
   font-family: 'Reenie Beanie', sans-serif;
 }
 
-.nav-link .fa:hover {
-  color: gray !important;
+i {
+  color: #000;
+}
+
+.nav-link:hover, .fa:hover {
+  color: rgb(129, 129, 129) !important;
   transition: all 0.2s ease;
 }
 
